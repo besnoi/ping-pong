@@ -13,8 +13,7 @@ https://pixabay.com/users/HeungSoon-4523762/
 
 Credits for Sound
 -
-http://freesound.org/people/joshuaempyre/sounds/251461/
-(Music)
+http://freesound.org/people/joshuaempyre/sounds/251461/ (For Music)
 Other Sounds were generated using a software called Bfxr (and thanks to Colton for that)
 
 Other Credits
