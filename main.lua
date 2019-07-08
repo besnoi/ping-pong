@@ -6,6 +6,7 @@ GAME_DIFFICULTY='HARD'
 push=require 'push'
 gamestate='main_menu'
 servingPlayer=2
+timer=0
 Class=require 'class'
 require 'Ball'
 require 'Paddle'
@@ -50,6 +51,10 @@ function love.keyreleased(key)
 end
 
 function love.update(dt)
+    timer=timer+dt
+    if timer>1 then
+        timer=0
+    end
     if gamestate=='play' or gamestate=='serve' then
         player1:update(dt,ball.dx<0 and true or false)
         player2:update(dt,ball.dx>0 and true or false)
@@ -195,8 +200,10 @@ function main_menu()
     love.graphics.rectangle("line",40,180,280,162)
     love.graphics.line(40, 215, 320, 215)    
     love.graphics.draw(text,20,30,0,0.6,0.6)      
-    love.graphics.setNewFont("fonts/Orbitron Medium.otf",14)    
-    love.graphics.print("Click to start the game ",230,480-70); 
+    love.graphics.setNewFont("fonts/Orbitron Medium.otf",14)   
+    if timer>0.5 and timer<1 then 
+        love.graphics.print("Click to start the game ",230,480-70); 
+    end
     love.graphics.print("Game Objectives:",42,188);
     love.graphics.setNewFont("fonts/arial.ttf",15)
     love.graphics.printf("Control the two paddles using WASD and arrow keys and prevent tht ball from crossing the boundary. The next player would score a point if ball crosses your boundary and vice-versa. The fastest",42,230,278,'justify')   
